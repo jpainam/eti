@@ -26,7 +26,7 @@ class BaseTrainer:
             # zero the parameter gradients
             optimizer.zero_grad()
             # forward
-            outputs, features = model(imgs)
+            outputs = model(imgs)
             loss = criterion(outputs, scores.view(-1, 1))
             # backward + optimize
             loss.backward()
