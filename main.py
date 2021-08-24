@@ -13,7 +13,6 @@ import time
 import os.path as osp
 import numpy as np
 import datetime
-from models.resnext import resnet152
 from utils import save_checkpoint, mkdir_if_missing, Logger
 from models.resnet3d import r2plus1d_18, r3d_18, mc3_18
 
@@ -86,11 +85,8 @@ if __name__ == "__main__":
 
     print("Initializing model: {}".format(args.arch))
     # model = r2plus1d_18(pretrained=False, num_classes=1)
-    #model = r3d_18(pretrained=False, num_classes=1)
+    model = r3d_18(pretrained=False, num_classes=1)
     # model = mc3_18(pretrained=False, num_classes=1)
-    model = resnet152(num_classes=1,
-                      sample_size=32,
-                      sample_duration=16)
 
     print("Model size: {:.5f}M".format(sum(p.numel() for p in model.parameters()) / 1000000.0))
 
